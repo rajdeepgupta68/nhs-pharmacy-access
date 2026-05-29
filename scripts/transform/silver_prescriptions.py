@@ -22,11 +22,10 @@ if __name__ == "__main__":
     print("Reading prescription data...")
     raw = read_blob("bronze", "prescriptions/pca_icb_snomed_2024_2025.csv")
 
-    # Read full file — pandas can handle 338MB fine locally
     df = pd.read_csv(io.BytesIO(raw))
     print(f"Raw shape: {df.shape}")
 
-    # Keep only useful columns
+    # only useful columns
     df = df[[
         "YEAR_DESC", "REGION_NAME", "REGION_CODE",
         "ICB_NAME", "ICB_CODE",
