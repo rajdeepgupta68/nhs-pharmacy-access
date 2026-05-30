@@ -14,8 +14,8 @@ CONNECTION_STRING = (
 def upload_file(local_path, blob_name, container_name="bronze"):
     client = BlobServiceClient.from_connection_string(
         CONNECTION_STRING,
-        max_block_size=4*1024*1024,        # 4MB chunks
-        max_single_put_size=4*1024*1024,   # anything larger goes in chunks
+        max_block_size=4*1024*1024,        
+        max_single_put_size=4*1024*1024,   
         retry_total=5,                      # retry 5 times on failure
         connection_timeout=300,             # 5 min timeout
         read_timeout=300
@@ -27,7 +27,7 @@ def upload_file(local_path, blob_name, container_name="bronze"):
         container.get_blob_client(blob_name).upload_blob(
             f,
             overwrite=True,
-            max_concurrency=4              # parallel chunk uploads
+            max_concurrency=4              
         )
     print(f"Done: {blob_name} → {container_name}")
 
