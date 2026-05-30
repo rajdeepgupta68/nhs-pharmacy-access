@@ -59,17 +59,20 @@ and health services in England?
 | Version control | Git, GitHub |
 
 ## Data Pipeline
+```
 Raw Data (NHS BSA + ONS)
-↓
+        ↓
 Bronze Layer (Azure Blob — raw files as downloaded)
-↓
+        ↓
 Silver Layer (Azure Blob — cleaned, standardised)
-↓
+        ↓
 Gold Layer (Azure Blob — aggregated, analysis-ready)
-↓
+        ↓
 DuckDB SQL Analysis + Power BI Dashboard
+```
 
 ## Project Structure
+```
 nhs-pharmacy-access/
 ├── scripts/
 │   ├── ingest/
@@ -89,18 +92,15 @@ nhs-pharmacy-access/
 │   ├── analysis_deprivation_vs_access.sql
 │   ├── analysis_prescriptions_by_region.sql
 │   └── analysis_pharmacy_density.sql
+├── notebooks/
 ├── powerbi/
 │   └── nhs_pharmacy_dashboard.pbix
 ├── docs/
-│   ├── page1_deprivation.png
-│   ├── page2_map.png
-│   ├── page3_prescriptions.png
-│   └── page4_regional.png
 ├── config/
-├── .env                             
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
 ## Setup Instructions
 ```bash
